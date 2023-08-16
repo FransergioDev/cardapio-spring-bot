@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  cardapio_db_postgres:
+    image: postgres:14-alpine
+    restart: always
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=food
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=card@pio!
+    ports:
+      - "5432:5432"
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
